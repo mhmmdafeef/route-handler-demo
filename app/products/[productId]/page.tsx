@@ -25,8 +25,16 @@ export default async function ProductPage({params}:{
     return(
         <div className="flex bg-[#F7ECE9]  py-6 px-6 gap-20">
             
-            <img src = "/Gemini_Generated_Image_snycj8snycj8snyc.jpeg"></img>
-            <div className="text-[#5e313c] flex flex-col gap-2 py-2 ">
+             <div className="w-1/2 flex items-start justify-center">
+      <div className="w-full max-w-xl aspect-square overflow-hidden">
+        <img
+          src="/Gemini_Generated_Image_snycj8snycj8snyc.jpeg"
+          className="w-full h-full object-cover"
+          alt={product.name}
+        />
+      </div>
+    </div>
+            <div className="w-1/2 text-[#5e313c] flex flex-col gap-2 py-2 ">
             <span className="text-[#A85865] text-1xl">BEST SELLER</span>
             <h1 className="text-5xl">{product.name}</h1>
             <span>A timeless fragrance for her</span>
