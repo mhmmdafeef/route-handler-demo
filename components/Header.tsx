@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import AmalLogo from "./AmalLogo";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
+  const {totalItems} =useCart();
   return (
     <header className="border-b border-[#ead5d9] bg-[#fffaf9]">
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
@@ -108,7 +111,7 @@ export default function Header() {
             </svg>
 
             <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#9f4f62] text-[9px] text-white">
-              0
+              {totalItems}
             </span>
           </Link>
 

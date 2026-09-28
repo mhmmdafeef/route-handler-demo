@@ -1,3 +1,5 @@
+import Cart from "./Cart";
+
 type AmalLogoProps = {
   className?: string;
   showRose?: boolean;
@@ -8,6 +10,8 @@ export default function AmalLogo({
   showRose = true,
 }: AmalLogoProps) {
   return (
+    <div className="grid grid-cols-3 items-center  bg-rose-200">
+      <div></div>
     <div
       className={`flex flex-col items-center leading-none bg-rose-200`}
       aria-label="AMAL"
@@ -67,6 +71,11 @@ export default function AmalLogo({
       <div className="mt-2 text-[8px] uppercase tracking-[0.35em] text-[#b8838e]">
         Parfum
       </div>
+     
+    </div>
+    <div className="flex justify-end px-2">
+  
+       </div>
     </div>
   );
 }

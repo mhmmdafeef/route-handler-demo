@@ -1,3 +1,4 @@
+import { error } from "console";
 import { products } from "./productdetails";
 
 export async function GET(request:Request,
@@ -12,9 +13,16 @@ console.log(productid)
 
 
 const product = products.find((product)=>{
-    product.name === productid
-    return product;
+    return product.id === productid
+    
 });
+
+if(!product){
+    return Response.json({
+        error: "Product not found"},
+        {status:404
+    });
+}
 
 console.log(product);
 

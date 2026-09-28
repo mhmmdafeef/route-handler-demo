@@ -3,6 +3,8 @@ import { Cormorant_Garamond, Geist, Geist_Mono, Montserrat } from "next/font/goo
 import "./globals.css";
 import AmalLogo from "@/components/AmalLogo";
 import AmalFooter from "@/components/AmalFooter";
+import { CartProvider } from "@/context/CartContext";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +40,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${bodyFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f8e8eb] text-[#5e313c]">
-        <AmalLogo></AmalLogo>
+        <CartProvider>
+        <Header></Header>
         {children}
         <AmalFooter></AmalFooter>
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,5 +1,9 @@
 import { Product } from "@/app/api/products/[productid]/productdetails";
 import CartCounter from "@/components/CartCounter";
+import Cta from "@/components/Cta";
+import { notFound } from "next/navigation";
+import SizeSelector from "@/components/SizeSelector"
+import CartAction from "@/components/CartAction";
 
 export default async function ProductPage({params}:{
     params:Promise<{productId:string;}>;
@@ -10,7 +14,12 @@ export default async function ProductPage({params}:{
 
     const response = await fetch (`http://localhost:3000/api/products/${productname}`);
 
+    if(!response.ok){
+        notFound();
+    }
+
     const product : Product = await response.json();
+
 
     
     return(
@@ -24,12 +33,14 @@ export default async function ProductPage({params}:{
             <p>{product.detailedDescription}</p>
             <span>select size</span>
             <div className = "flex flex-row gap-2 ">
-            {product.sizes.map((size)=>
-                <button className="bg-[#A85865] rounded-2xl w-20 text-amber-50" >{size}</button>
-            )} 
-            </div>
-            <CartCounter/>
             
+              
+            
+            </div>
+            <div className="flex flex-row gap-2">
+            <CartAction product={product}></CartAction>
+         
+           </div>
            </div>
         
         </div>
