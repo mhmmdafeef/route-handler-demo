@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link"
 
 interface PerfumeCardProps {
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -11,6 +12,7 @@ interface PerfumeCardProps {
 }
 
 export default function Card({
+  id,
   name,
   description,
   price,
@@ -18,43 +20,44 @@ export default function Card({
 }: PerfumeCardProps) {
 
   return (
-    <Link href={`/products/${name.toLowerCase().replaceAll(" ", "-")}`}>
-    <div className="group w-full max-w-sm overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-      
-      {/* Product Image */}
-      <div className="relative aspect-square overflow-hidden bg-gray-100">
+    <Link
+      href={`/products/${id}`}
+      className="group block w-full max-w-sm overflow-hidden rounded-sm border border-[#ead5d9] bg-[#fffaf9] shadow-[0_8px_28px_rgba(94,49,60,0.07)] transition duration-300 hover:border-[#c9959f] hover:shadow-[0_14px_36px_rgba(94,49,60,0.13)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9f4f62]"
+    >
+      <div className="relative aspect-4/5 overflow-hidden bg-[#f8e8eb]">
         <Image
           src={image}
           alt={name}
           fill
-          className="object-cover transition duration-500 group-hover:scale-105"
+          sizes="(min-width: 768px) 33vw, 85vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
         />
       </div>
 
-      {/* Product Details */}
-      <div className="p-6">
-        <h3 className="text-xl font-semibold tracking-wide text-gray-900">
+      <div className="p-5 sm:p-6">
+        <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#a45c6c]">
+          Amal Fragrance
+        </p>
+        <h3 className="mt-2 font-heading text-2xl font-medium text-[#5e313c]">
           {name}
         </h3>
 
-        <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-500">
+        <p className="mt-2 line-clamp-2 min-h-12 text-sm leading-6 text-[#8c6870]">
           {description}
         </p>
 
-        <div className="mt-5 flex items-center justify-between">
-          <span className="text-lg font-semibold text-gray-900">
+        <div className="mt-5 flex items-center justify-between gap-3 border-t border-[#ead5d9] pt-4">
+          <span className="font-heading text-xl font-medium text-[#5e313c]">
             AED {price}
           </span>
 
-          <button
-            type="button"
-            className="rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-gray-700"
+          <span
+            className="inline-flex min-h-10 items-center justify-center bg-[#9f4f62] px-4 text-xs font-medium uppercase tracking-[0.12em] text-white transition-colors group-hover:bg-[#713d4b]"
           >
             View Product
-          </button>
+          </span>
         </div>
       </div>
-    </div>
     </Link>
   );
 }

@@ -6,7 +6,7 @@ import { useCart } from "@/context/CartContext";
 export default function Header() {
   const {totalItems} =useCart();
   return (
-    <header className="border-b border-[#ead5d9] bg-[#fffaf9]">
+    <header className="border-b border-[#ead5d9] bg-[#f8e8eb]">
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
 
         {/* Logo */}

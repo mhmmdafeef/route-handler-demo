@@ -1,21 +1,19 @@
-import Link from "next/link"
-import { bestsellers } from "./products"
-import Card from "@/components/Card"
-export default function bestsellerpage()
+import Card from "@/components/Card";
+import { products } from "@/app/api/products/[productid]/productdetails";
 
-{
-
-  return(
-     
-    <div className="bg-[#f8e8eb]  flex gap-3 px-2 py-4">
-    {bestsellers.map((perfume) => (
-  <Card
-    key={perfume.name}
-    name={perfume.name}
-    description={perfume.description}
-    price={perfume.price}
-    image={perfume.image}
-  />
-))}</div>
-)
+export default function BestsellersPage() {
+  return (
+    <div className="flex gap-3 bg-[#f8e8eb] px-2 py-4">
+      {products.map((product) => (
+        <Card
+          key={product.id}
+          id={product.id}
+          name={product.name}
+          description={product.description}
+          price={product.price}
+          image={product.images[0]}
+        />
+      ))}
+    </div>
+  );
 }

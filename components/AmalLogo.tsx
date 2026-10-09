@@ -1,5 +1,3 @@
-import Cart from "./Cart";
-
 type AmalLogoProps = {
   className?: string;
   showRose?: boolean;
@@ -10,72 +8,45 @@ export default function AmalLogo({
   showRose = true,
 }: AmalLogoProps) {
   return (
-    <div className="grid grid-cols-3 items-center  bg-rose-200">
-      <div></div>
-    <div
-      className={`flex flex-col items-center leading-none bg-rose-200`}
-      aria-label="AMAL"
-    >
-      {/* Arabic Logo */}
-      <div
-        dir="rtl"
-        className="font-serif text-5xl font-light tracking-wide text-[#9f4f62]"
-      >
-        أمل
-      </div>
-
-      {/* Rose */}
+    <div className={`inline-flex items-center gap-3 ${className}`}>
       {showRose && (
-        <div className="relative -mt-2 mb-1 text-[#c87589]">
+        <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-[#d8b2ba] text-[#9f4f62]">
           <svg
             width="28"
-            height="20"
-            viewBox="0 0 28 20"
+            height="28"
+            viewBox="0 0 36 36"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
+            <circle cx="18" cy="18" r="16" stroke="currentColor" strokeWidth="0.7" />
             <path
-              d="M14 17C12 12 5 11 5 6C5 2 10 1 14 5C18 1 23 2 23 6C23 11 16 12 14 17Z"
+              d="M18 25.5c-3.2-2.2-7.2-3.8-7.2-8 0-2.5 3.1-3.7 5.3-1.1.4-2.7 3.6-2.7 4 0 2.2-2.6 5.3-1.4 5.3 1.1 0 4.2-4 5.8-7.4 8Z"
               stroke="currentColor"
-              strokeWidth="1.3"
+              strokeWidth="0.9"
+              strokeLinejoin="round"
             />
-
             <path
-              d="M14 17C14 12 14 8 14 5"
+              d="M18 25.5v-9m0 6.4c-1.7-1.5-3.4-1.9-5.3-1.4m5.3 1.4c1.7-1.5 3.4-1.9 5.3-1.4"
               stroke="currentColor"
-              strokeWidth="1.2"
-            />
-
-            <path
-              d="M14 14C11 12 9 12 7 13"
-              stroke="currentColor"
-              strokeWidth="1.1"
-            />
-
-            <path
-              d="M14 14C17 12 19 12 21 13"
-              stroke="currentColor"
-              strokeWidth="1.1"
+              strokeWidth="0.8"
+              strokeLinecap="round"
             />
           </svg>
-        </div>
+        </span>
       )}
 
-      {/* English Brand Name */}
-      <div className="font-serif text-xl tracking-[0.35em] text-[#9f4f62]">
-        AMAL
-      </div>
-
-      {/* Optional descriptor */}
-      <div className="mt-2 text-[8px] uppercase tracking-[0.35em] text-[#b8838e]">
-        Parfum
-      </div>
-     
-    </div>
-    <div className="flex justify-end px-2">
-  
-       </div>
+      <span className="flex flex-col items-start leading-none">
+        <span dir="rtl" className="font-heading text-2xl text-[#713d4b]">
+          أمل
+        </span>
+        <span className="mt-0.5 font-heading text-[19px] tracking-[0.19em] text-[#9f4f62]">
+          AMAL
+        </span>
+        <span className="mt-1 text-[7px] font-medium uppercase tracking-[0.36em] text-[#b8838e]">
+          Parfum
+        </span>
+      </span>
     </div>
   );
 }
